@@ -28,35 +28,32 @@ This repository contains the source code for a music bot built using Python, Pyr
 
 ### Setup:
 
-1. **Clone the repository:**
+<h1>1. Clone the repository:</h1>
 
    ```bash
    git clone https://github.com/MrMehulkhanna/youtube-to-mp3 && cd youtube-to-mp3
    ```
- 2. **Edit the environment variables:**
+ <h2> 2. Edit the environment variables:</h2>
   ```bash
   vi .env
   ```
   Press  ```I ``` on the keyboard for editing env
   Press``` Ctrl+C ``` when you're done with editing env and ``` :wq ```to save the env
 
-3. **All dependencies already installed:**
+ <h3>3. All dependencies already installed:</h3>
 
    ```bash
    source venv/bin/activate
    ```
 
-4. **Run the bot script:**
+ <h4>4.Run the bot script:</h4>
 
    ```bash
    python youtube-to-mp3.py
    ```
-  it will ask Enter phone number or bot token: put bot token only
-
-   
-
-
-Install tmux to keep running your bot when you close the terminal by 
+   <t> it  asks "Enter phone number or bot token: "put **bot_token** only </t>
+                                                                                 
+**Install tmux to keep running your bot when you close the terminal by**
   ```bash
 sudo apt install tmux && tmux
   ```
