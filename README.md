@@ -34,7 +34,7 @@ This repository contains the source code for a music bot built using Python, Pyr
    git clone https://github.com/MrMehulkhanna/youtube-to-mp3 && cd youtube-to-mp3
    ```
 
-2. **Install the required dependencies:**
+2. **All dependencies already installed:**
 
    ```bash
    source venv/bin/activate
