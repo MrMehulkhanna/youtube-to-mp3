@@ -51,6 +51,8 @@ This repository contains the source code for a music bot built using Python, Pyr
    ```bash
    python youtube-to-mp3.py
    ```
+  it will ask Enter phone number or bot token: put bot token only
+
    
 
 
