@@ -2,18 +2,21 @@ from pyrogram import Client, filters
 from pydub import AudioSegment
 from pytube import YouTube
 from urllib.parse import parse_qs, urlparse
-import os
+import os 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Client(
-    "bot_token",#bot token from fatherbot telegram
-    api_id=YOUR_API_ID,#api id taken from my.telegram.org
-    api_hash="YOUR_API_HASH"#api hash taken from my telegram.org
+    "bot_token",  # Use os.environ.get("BOT_TOKEN")
+    api_id=int(os.environ.get("API_ID")),  # Convert to integer
+    api_hash=os.environ.get("API_HASH")
 )
-
 
 @app.on_message(filters.command("start"))
 def start(_, message):
-    message.reply_text("Hi! I am your music bot. Send me a YouTube link, and I will download the audio.")
+    message.reply_text("Hi! I am your music bot. Send me a YouTube link, and I will download the audio. use /download with youtube link  for which Mp3 file you want")
 
 @app.on_message(filters.command("download"))
 def download_command(_, message):
