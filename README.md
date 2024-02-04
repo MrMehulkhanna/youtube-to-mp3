@@ -34,10 +34,11 @@ This repository contains the source code for a music bot built using Python, Pyr
    git clone https://github.com/MrMehulkhanna/youtube-to-mp3 && cd youtube-to-mp3
    ```
  <h2> 2. Edit the environment variables:</h2>
+    
   ```bash
   vi .env
   ```
-  Press  ```I ``` on the keyboard for editing env
+  Press  ```I```  on the keyboard for editing env
   Press``` Ctrl+C ``` when you're done with editing env and ``` :wq ```to save the env
 
  <h3>3. All dependencies already installed:</h3>
