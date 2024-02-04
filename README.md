@@ -45,10 +45,7 @@ This repository contains the source code for a music bot built using Python, Pyr
    ```bash
    python youtube-to-mp3.py
    ```
-
-### Contribution:
-
-Feel free to contribute to this project by creating issues, suggesting enhancements, or submitting pull requests.
+   
 
 
 Install tmux to keep running your bot when you close the terminal by 
@@ -56,3 +53,12 @@ Install tmux to keep running your bot when you close the terminal by
 sudo apt install tmux && tmux
   ```
 For getting out from tmux session : Press   ```bash Ctrl+b    ```  and  ```bash then d```
+
+
+
+### Contribution:
+
+Feel free to contribute to this project by creating issues, suggesting enhancements, or submitting pull requests.
+
+
+
