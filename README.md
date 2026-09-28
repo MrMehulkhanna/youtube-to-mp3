@@ -1,70 +1,39 @@
-[![Bot Image](https://yablyk.com/wp-content/uploads/2019/03/audio-from-youtube-in-telegram.jpg)]
+# YouTube → MP3 Telegram bot
 
+A small Telegram bot: send it `/download <YouTube link>` and it replies with the audio as an MP3,
+with title and artist filled in.
 
+**Stack:** Python · [Pyrogram](https://docs.pyrogram.org) (Telegram) · [yt-dlp](https://github.com/yt-dlp/yt-dlp) (download) · [Pydub](https://github.com/jiaaro/pydub) (MP3 conversion)
 
+## How it works
 
+1. `/download` messages are matched against YouTube URL patterns (youtube.com, youtu.be, music.youtube.com).
+2. yt-dlp fetches the best available audio stream; videos longer than `MAX_MINUTES` are skipped so uploads
+   stay within Telegram's limits.
+3. Pydub (ffmpeg under the hood) converts it to a 192 kbps MP3.
+4. Pyrogram sends it back as an audio message. Every request works in its own temporary folder, so
+   simultaneous downloads never overwrite each other, and nothing is left on disk.
 
-# youtube-to-mp3
+## Run it
 
-This repository contains the source code for a music bot built using Python, Pyrogram, and Pydub. The bot is designed to download audio from YouTube links and send them as playable audio files on Telegram.
+Requirements: Python 3.10+ and `ffmpeg` (e.g. `sudo apt install ffmpeg` or `sudo pacman -S ffmpeg`).
 
-### Features:
+```bash
+git clone https://github.com/MrMehulkhanna/youtube-to-mp3 && cd youtube-to-mp3
+python -m venv .venv && .venv/bin/pip install -r requirements.txt
+cp .env.example .env      # then fill it in:
+                          #   API_ID / API_HASH  → https://my.telegram.org  (API development tools)
+                          #   BOT_TOKEN          → @BotFather on Telegram
+.venv/bin/python youtube-to-mp3.py
+```
 
-- **YouTube Link Processing:** Accepts YouTube links and extracts audio for download.
-- **Audio Conversion:** Converts downloaded audio to MP3 format for easy playback.
-- **Telegram Integration:** Sends the converted audio file to the Telegram chat.
+Then open your bot in Telegram and send:
 
-### Instructions:
+```
+/download https://youtu.be/dQw4w9WgXcQ
+```
 
-1. Send a YouTube link to the bot using the `/download` command.
-2. The bot will process the link, download the audio, and send it back to the chat.
-3. Enjoy your music!
+## Notes
 
-### Requirements:
-
-- Pyrogram
-- Pydub
-- Pytube3
-
-### Setup:
-
-<h1>1. Clone the repository:</h1>
-
-   ```bash
-   git clone https://github.com/MrMehulkhanna/youtube-to-mp3 && cd youtube-to-mp3
-   ```
- <h2> 2. Edit the environment variables:</h2>
-    
-  ```bash
-  vi .env
-  ```
-  Press  ```I```  on the keyboard for editing env
-  Press``` Ctrl+C ``` when you're done with editing env and ``` :wq ```to save the env
-
- <h3>3. All dependencies already installed:</h3>
-
-   ```bash
-   source venv/bin/activate
-   ```
-
- <h4>4.Run the bot script:</h4>
-
-   ```bash
-   python youtube-to-mp3.py
-   ```
-   <t> it  asks "Enter phone number or bot token: "put **bot_token** only </t>
-                                                                                 
-**Install tmux to keep running your bot when you close the terminal by**
-  ```bash
-sudo apt install tmux && tmux
-  ```
-For getting out from tmux session : Press   ```bash Ctrl+b    ```  and  ```bash then d```
-
-
-
-### Contribution:
-
-Feel free to contribute to this project by creating issues, suggesting enhancements, or submitting pull requests.
-
-
-
+- `.env` is git-ignored; never commit real credentials.
+- Only download audio you have the right to — respect creators and YouTube's terms.

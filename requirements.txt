@@ -1,0 +1,5 @@
+pyrogram>=2.0
+tgcrypto>=1.2
+yt-dlp>=2025.1
+pydub>=0.25
+python-dotenv>=1.0
